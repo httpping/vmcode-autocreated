@@ -1,0 +1,142 @@
+package ${package.ServiceImpl};
+
+import ${package.Entity}.${entity};
+import ${package.Mapper}.${table.mapperName};
+import ${package.Service}.${table.serviceName};
+import ${superServiceImplClassPackage};
+import cn.vpclub.moses.utils.constant.ValidatorConditionType;
+import cn.vpclub.moses.utils.validator.AttributeValidatorException;
+
+import org.springframework.stereotype.Service;
+import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+
+import cn.vpclub.moses.core.model.response.PageResponse;
+##import cn.vpclub.moses.core.model.response.PageResponse;
+import cn.vpclub.moses.core.enums.ReturnCodeEnum;
+import cn.vpclub.moses.core.model.response.BackResponseUtil;
+import cn.vpclub.moses.core.model.response.BaseResponse;
+import cn.vpclub.moses.core.model.response.ResponseConvert;
+import com.baomidou.mybatisplus.mapper.EntityWrapper;
+import com.baomidou.mybatisplus.plugins.Page;
+import ${cfg.rpc_package}.${entity}RpcService;
+##import ${cfg.root_package}.mapper.${entity}Mapper;
+import ${cfg.root_package}.model.request.${entity}PageParam;
+##import ${cfg.root_package}.service.I${entity}Service;
+import java.util.List;
+##import com.vpclub.consumer.rpc.UsersRpcService;
+
+#set($serverName ="mService")
+
+/**
+ * <p>
+ * $!{table.comment} 服务实现类
+ * </p>
+ *
+ * @author ${author}
+ * @since ${date}
+ */
+@Service
+@Slf4j
+@AllArgsConstructor
+public class ${table.serviceImplName} implements ${table.serviceName} {
+
+private ${entity}RpcService ${serverName};
+
+    /**
+    * 添加方法
+    * @return
+    */
+    public BaseResponse add(${entity} request) {
+        BaseResponse response;
+        //业务操作
+        log.info("add ${entity}: {}", request);
+        try {
+        request.validate(ValidatorConditionType.CREATE);
+        response = ${serverName}.add(request);
+        } catch (AttributeValidatorException e) {
+        log.error("error: {}", e);
+        response = BackResponseUtil.getBaseResponse(ReturnCodeEnum.CODE_1006.getCode());
+        response.setMessage(e.getMessage());
+        }
+        return response;
+    }
+
+    /**
+    * 修改方法
+    * @return
+    */
+    public BaseResponse update(${entity} request) {
+        BaseResponse response;
+        //业务操作
+        log.info("update ${entity} : {}", request);
+        try {
+            request.validate(ValidatorConditionType.UPDATE);
+            response = ${serverName}.update(request);
+        log.debug("update ${entity} back : {}", response);
+        } catch (AttributeValidatorException e) {
+            log.error("error: {}", e);
+            response = BackResponseUtil.getBaseResponse(ReturnCodeEnum.CODE_1006.getCode());
+            response.setMessage(e.getMessage());
+        }
+        return response;
+    }
+
+    /**
+    * 单个查询
+    * @return
+    */
+    public BaseResponse query(${entity} request) {
+        BaseResponse response;
+        //业务操作
+        log.info("query ${entity} : {}", request);
+        try {
+            request.validate(ValidatorConditionType.READ);
+            response = ${serverName}.query(request);
+        log.info("query ${entity} back: {}", response);
+        } catch (AttributeValidatorException e) {
+            log.error("error: {}", e);
+            response = BackResponseUtil.getBaseResponse(ReturnCodeEnum.CODE_1006.getCode());
+            response.setMessage(e.getMessage());
+        }
+        return response;
+    }
+
+    /**
+    * 删除
+    * @return
+    */
+    public BaseResponse delete(${entity} request) {
+        BaseResponse response;
+        //业务操作
+        log.info("delete ${entity} " + request);
+        try {
+            request.validate(ValidatorConditionType.DELETE);
+            response = ${serverName}.delete(request);
+            log.debug("delete ${entity} back : {}", response);
+        } catch (AttributeValidatorException e) {
+            log.error("error: {}", e);
+            response = BackResponseUtil.getBaseResponse(ReturnCodeEnum.CODE_1006.getCode());
+            response.setMessage(e.getMessage());
+        }
+        return response;
+    }
+
+    /**
+    * 条件查询分页列表
+    * @param request
+    * @return
+    */
+    public PageResponse page(${entity}PageParam request) {
+        PageResponse response;
+        //业务操作
+        log.info("${entity} page method request : {}", request);
+        if (null == request) {
+            response = BackResponseUtil.getPageResponse(ReturnCodeEnum.CODE_1006.getCode());
+        } else {
+            log.info("${entity} page method request : {}",request);
+            response = ${serverName}.page(request);
+        }
+        return response;
+    }
+}

@@ -1,0 +1,25 @@
+package ${cfg.root_package}.model.request;
+
+#if(${entityLombokModel})
+
+import lombok.Data;
+import lombok.experimental.Accessors;
+import cn.vpclub.moses.core.model.request.PageBaseSearchParam;
+import lombok.Data;
+#end
+
+/**
+ * <p>
+ * $!{table.comment}
+ * </p>
+ *
+ * @author ${author}
+ * @since ${date}
+ */
+#if(${entityLombokModel})
+@Data
+@Accessors(chain = true)
+#end
+public class ${entity}PageParam extends PageBaseSearchParam{
+
+}
