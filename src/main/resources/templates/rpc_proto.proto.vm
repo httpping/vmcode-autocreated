@@ -1,0 +1,56 @@
+syntax = "proto3";
+import "type.proto";
+
+option java_package = "${cfg.rpc_package}";
+option java_outer_classname = "${entity}Proto";
+
+
+#set($dtoName=${entity}+"DTO")
+
+message ${entity}DTO{
+#set($index =1)
+#foreach($field in ${table.fields})
+    ${field.propertyType} ${field.propertyName} = ${index} ;
+#set($index=$index+1)
+#end
+}
+
+message ${entity}Request {
+    int32 pageNumber = 1;
+    int32 pageSize = 2;
+}
+
+message ${entity}Response {
+    int32 returnCode = 1;
+    string message = 2;
+    $dtoName dataInfo = 3;
+}
+
+message ${entity}PageResponse {
+    int32 returnCode = 1;
+    string message = 2;
+    repeated $dtoName records = 3;
+    int32 current = 4;
+    int32 size = 5;
+    int32 total = 6;
+    int32 pages = 7;
+    int32 offset = 8;
+    int32 limit = 9;
+    string orderByField = 10;
+    bool searchCount = 11;
+    bool optimizeCount = 12;
+    bool isAsc = 13;
+}
+
+service ${entity}Service {
+    rpc add (${dtoName}) returns (${entity}Response) {
+    }
+    rpc query (${entity}DTO) returns (${entity}Response) {
+    }
+    rpc update (${entity}DTO) returns (${entity}Response) {
+    }
+    rpc delete (${entity}DTO) returns (${entity}Response) {
+    }
+    rpc page (${entity}Request) returns (${entity}PageResponse) {
+    }
+}

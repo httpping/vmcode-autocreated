@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: cn.vpclub:spring-boot-starter-mybatis:1.5.17.RELEASE">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/cn/vpclub/spring-boot-starter-mybatis/1.5.17.RELEASE/spring-boot-starter-mybatis-1.5.17.RELEASE.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/cn/vpclub/spring-boot-starter-mybatis/1.5.17.RELEASE/spring-boot-starter-mybatis-1.5.17.RELEASE-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/cn/vpclub/spring-boot-starter-mybatis/1.5.17.RELEASE/spring-boot-starter-mybatis-1.5.17.RELEASE-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

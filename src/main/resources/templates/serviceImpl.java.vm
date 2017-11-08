@@ -1,0 +1,126 @@
+package ${package.ServiceImpl};
+
+import ${package.Entity}.${entity};
+import ${package.Mapper}.${table.mapperName};
+import ${package.Service}.${table.serviceName};
+import ${superServiceImplClassPackage};
+import org.springframework.stereotype.Service;
+
+import cn.vpclub.moses.core.enums.ReturnCodeEnum;
+import cn.vpclub.moses.core.model.response.BackResponseUtil;
+import cn.vpclub.moses.core.model.response.BaseResponse;
+import cn.vpclub.moses.core.model.response.ResponseConvert;
+import com.baomidou.mybatisplus.mapper.EntityWrapper;
+import com.baomidou.mybatisplus.plugins.Page;
+##import ${cfg.root_package}.entity.${entity};
+##import ${cfg.root_package}.mapper.${entity}Mapper;
+import ${cfg.root_package}.model.request.${entity}PageParam;
+##import ${cfg.root_package}.service.I${entity}Service;
+import java.util.List;
+/**
+ * <p>
+ * $!{table.comment} 服务实现类
+ * </p>
+ *
+ * @author ${author}
+ * @since ${date}
+ */
+@Service
+public class ${table.serviceImplName} extends ${superServiceImplClass}<${table.mapperName}, ${entity}> implements ${table.serviceName} {
+
+    public ${entity}ServiceImpl() {
+        super();
+    }
+    
+    public ${entity}ServiceImpl(${entity}Mapper baseMapper) {
+        this.baseMapper = baseMapper;
+    }
+    /**
+     * 添加方法
+     * @return
+     */
+    @Override
+    public BaseResponse add(${entity} model) {
+        boolean back = this.insertOrUpdate(model);
+        BaseResponse baseResponse = ResponseConvert.convert(back);
+        return baseResponse;
+    }
+    /**
+    * 删除
+    * @return
+    */
+    @Override
+    public BaseResponse delete(${entity} model) {
+        BaseResponse baseResponse ;
+        if (null == model || null == model.getId()) {
+            baseResponse = BackResponseUtil.getBaseResponse(ReturnCodeEnum.CODE_1006.getCode());
+        } else {
+        boolean back = this.deleteById(model.getId());
+            baseResponse = ResponseConvert.convert(back);
+        }
+        return baseResponse;
+    }
+    /**
+    * 修改方法
+    * @return
+    */
+    @Override
+    public BaseResponse update(${entity} model) {
+        BaseResponse baseResponse ;
+        if (null == model || null == model.getId()) {
+        baseResponse = BackResponseUtil.getBaseResponse(ReturnCodeEnum.CODE_1006.getCode());
+        } else {
+        boolean back = this.updateById(model);
+        baseResponse = ResponseConvert.convert(back);
+        }
+        return baseResponse;
+    }
+    /**
+    * 单个查询
+    * @return
+    */
+    @Override
+    public BaseResponse query(${entity} model) {
+        BaseResponse baseResponse;
+        if (null == model || null == model.getId()) {
+            baseResponse = BackResponseUtil.getBaseResponse(ReturnCodeEnum.CODE_1006.getCode());
+        } else {
+            ${entity} data = this.selectById(model.getId());
+            if (null != data) {
+                baseResponse = BackResponseUtil.getBaseResponse(ReturnCodeEnum.CODE_1000.getCode());
+                baseResponse.setDataInfo(data);
+            } else {
+                 baseResponse = BackResponseUtil.getBaseResponse(ReturnCodeEnum.CODE_1002.getCode());
+            }
+        }
+        return baseResponse;
+    }
+    
+    /**
+    * 条件查询分页列表
+    * @param pageParam
+    * @return
+    */
+    @Override
+    public Page page(${entity}PageParam pageParam) {
+        Page<${entity}> page = new Page<${entity}>();
+
+        Page<${entity}> pageResponse = null;
+        //封装条件
+        EntityWrapper<${entity}> ew = new EntityWrapper<${entity}>();
+
+        //针对分页判断
+        if (null != pageParam && null != pageParam.getPageNumber() && null != pageParam.getPageSize()) {
+        page.setCurrent(pageParam.getPageNumber());
+        page.setSize(pageParam.getPageSize());
+        pageResponse = this.selectPage(page, ew);
+        } else {
+        List<${entity}> selectList = this.selectList(ew);
+        pageResponse = new Page<>();
+        pageResponse.setRecords(selectList);
+        }
+        //记录数
+        pageResponse.setTotal(this.selectCount(ew));
+        return pageResponse;
+    }
+}

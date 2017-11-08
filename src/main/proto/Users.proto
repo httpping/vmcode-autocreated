@@ -1,0 +1,56 @@
+syntax = "proto3";
+import "type.proto";
+
+option java_package = "com.vpclub.provider.rpc";
+option java_outer_classname = "UsersProto";
+
+
+
+message UsersDTO{
+    Long id = 1 ;
+    Integer age = 2 ;
+    String areaAp = 3 ;
+    String name = 4 ;
+    Integer storeId = 5 ;
+    Integer deleted = 6 ;
+}
+
+message UsersRequest {
+    int32 pageNumber = 1;
+    int32 pageSize = 2;
+}
+
+message UsersResponse {
+    int32 returnCode = 1;
+    string message = 2;
+    UsersDTO dataInfo = 3;
+}
+
+message UsersPageResponse {
+    int32 returnCode = 1;
+    string message = 2;
+    repeated UsersDTO records = 3;
+    int32 current = 4;
+    int32 size = 5;
+    int32 total = 6;
+    int32 pages = 7;
+    int32 offset = 8;
+    int32 limit = 9;
+    string orderByField = 10;
+    bool searchCount = 11;
+    bool optimizeCount = 12;
+    bool isAsc = 13;
+}
+
+service UsersService {
+    rpc add (UsersDTO) returns (UsersResponse) {
+    }
+    rpc query (UsersDTO) returns (UsersResponse) {
+    }
+    rpc update (UsersDTO) returns (UsersResponse) {
+    }
+    rpc delete (UsersDTO) returns (UsersResponse) {
+    }
+    rpc page (UsersRequest) returns (UsersPageResponse) {
+    }
+}
