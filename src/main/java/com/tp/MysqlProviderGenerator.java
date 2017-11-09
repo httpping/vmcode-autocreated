@@ -53,9 +53,13 @@ public class MysqlProviderGenerator {
      * </p>
      */
     public static void main(String[] args) {
+        run();
+    }
+
+        public static void run() {
         //===== modify base data
-        String projectRoot  = "D:\\java-work\\demo\\vmcode-autocreated\\src\\main";
-        String rootJavaPackage = "com.vpclub.provider";
+        String projectRoot  = DBConfig.PROJECT_ROOT_PATH;
+        String rootJavaPackage = DBConfig.PROJECT_PROVIDER_PACKAGE;
         //====end
 
         String rootPath =  projectRoot +"/java";
@@ -101,9 +105,9 @@ public class MysqlProviderGenerator {
                             }
                         })
                         .setDriverName("com.mysql.jdbc.Driver")
-                        .setUsername("root")
-                        .setPassword("123456")
-                        .setUrl("jdbc:mysql://127.0.0.1:3306/spring_boot?characterEncoding=utf8")
+                        .setUsername(DBConfig.DB_USERNAME)
+                        .setPassword(DBConfig.DB_PASSWORD)
+                        .setUrl("jdbc:mysql://"+DBConfig.DB_HOST+"/"+DBConfig.DB_NAME+"?characterEncoding=utf8")
         ).setStrategy(
                 // 策略配置
                 new StrategyConfig()
@@ -118,7 +122,7 @@ public class MysqlProviderGenerator {
                         // 自定义实体，公共字段
                         .setSuperEntityColumns(new String[]{"test_id"})
                         .setTableFillList(tableFillList)
-                        .setLogicDeleteFieldName("deleted")
+//                        .setLogicDeleteFieldName("deleted")
                 // 自定义 mapper 父类
                 // .setSuperMapperClass("com.baomidou.demo.TestMapper")
                 // 自定义 service 父类

@@ -46,15 +46,20 @@ public class MysqlConsumerGenerator {
      * MySQL 生成演示
      * </p>
      */
+
     public static void main(String[] args) {
-        String projectRoot  = "D:\\java-work\\demo\\vmcode-autocreated\\src\\main";
+        run();
+    }
+
+    public static void run() {
+        String projectRoot  = DBConfig.PROJECT_ROOT_PATH;
         String rootPath =  projectRoot +"/java";
         String protoPath = projectRoot +"/proto";
 
-        String rootJavaPackage = "com.vpclub.consumer";
+        String rootJavaPackage = DBConfig.PROJECT_CONSUMER_PACKAGE;
         String rootPackage = rootJavaPackage.replace(".","/");
-        String providerProtoPackage = "com.vpclub.provider.rpc.api"; //提供者 proto java package
-
+        String providerProtoPackage = DBConfig.providerProtoPackage; //提供者 proto java package
+        String providerConfig = DBConfig.providerConfig; //提供者 配置
         // 自定义需要填充的字段
         List<TableFill> tableFillList = new ArrayList<>();
         tableFillList.add(new TableFill("ASDD_SS", FieldFill.INSERT_UPDATE));
@@ -94,9 +99,9 @@ public class MysqlConsumerGenerator {
                             }
                         })
                         .setDriverName("com.mysql.jdbc.Driver")
-                        .setUsername("root")
-                        .setPassword("123456")
-                        .setUrl("jdbc:mysql://127.0.0.1:3306/spring_boot?characterEncoding=utf8")
+                        .setUsername(DBConfig.DB_USERNAME)
+                        .setPassword(DBConfig.DB_PASSWORD)
+                        .setUrl("jdbc:mysql://"+DBConfig.DB_HOST+"/"+DBConfig.DB_NAME+"?characterEncoding=utf8")
         ).setStrategy(
                 // 策略配置
                 new StrategyConfig()
@@ -150,6 +155,7 @@ public class MysqlConsumerGenerator {
                         map.put("root_package",rootJavaPackage);
                         map.put("rpc_package",rootJavaPackage+".rpc");
                         map.put("rpc_proto_package",providerProtoPackage);
+                        map.put("rpc_provider_config",providerConfig);
                         this.setMap(map);
                     }
                 }.setFileOutConfigList(temple)
@@ -224,6 +230,14 @@ public class MysqlConsumerGenerator {
             @Override
             public String outputFile(TableInfo tableInfo) {
                 return rootPath +"/" +rootPackage+"/controller/" + tableInfo.getEntityName() + "Controller.java";
+            }
+        });
+
+        //config 层
+        temple.add(new FileOutConfig("/templates/consumer/rpc_config.java.vm") {
+            @Override
+            public String outputFile(TableInfo tableInfo) {
+                return rootPath +"/" +rootPackage+"/config/" + tableInfo.getEntityName() + "GrpcConfiguration.java";
             }
         });
 

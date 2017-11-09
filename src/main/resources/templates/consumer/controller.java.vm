@@ -12,7 +12,7 @@ import cn.vpclub.moses.web.controller.AbstractController;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
 
-import ${cfg.root_package}.model.request.UsersPageParam;
+import ${cfg.root_package}.model.request.${entity}PageParam;
 import ${package.Entity}.${entity};
 import ${package.Service}.${serviceClass};
 
