@@ -2,26 +2,145 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="18bb0dd1-41ad-49fc-8f78-8dbfb0c3bbc0" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/proto/Roles.proto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/proto/Users.proto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/tp/DBConfig.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/tp/MysqlConsumerGenerator$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/tp/MysqlConsumerGenerator$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/tp/MysqlConsumerGenerator$3.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/tp/MysqlConsumerGenerator$4.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/tp/MysqlConsumerGenerator$5.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/tp/MysqlConsumerGenerator$6.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/tp/MysqlConsumerGenerator$7.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/tp/MysqlConsumerGenerator$8.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/tp/MysqlConsumerGenerator$9.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/tp/MysqlConsumerGenerator.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/tp/MysqlProviderGenerator$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/tp/MysqlProviderGenerator$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/tp/MysqlProviderGenerator$3.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/tp/MysqlProviderGenerator$4.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/tp/MysqlProviderGenerator$5.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/tp/MysqlProviderGenerator.class" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/Roles.proto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/Users.proto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/App.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/tp/OnekeyGenerator.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/tp/generator/MysqlConsumerGenerator$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/tp/generator/MysqlConsumerGenerator$2.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/tp/generator/MysqlConsumerGenerator$3.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/tp/generator/MysqlConsumerGenerator$4.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/tp/generator/MysqlConsumerGenerator$5.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/tp/generator/MysqlConsumerGenerator$6.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/tp/generator/MysqlConsumerGenerator$7.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/tp/generator/MysqlConsumerGenerator$8.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/tp/generator/MysqlConsumerGenerator$9.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/tp/generator/MysqlConsumerGenerator.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/tp/generator/MysqlProviderGenerator$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/tp/generator/MysqlProviderGenerator$2.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/tp/generator/MysqlProviderGenerator$3.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/tp/generator/MysqlProviderGenerator$4.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/tp/generator/MysqlProviderGenerator$5.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/tp/generator/MysqlProviderGenerator.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/vpclub/consumer/config/RolesGrpcConfiguration.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/vpclub/consumer/config/UsersGrpcConfiguration.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/vpclub/consumer/controller/RolesController.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/vpclub/consumer/controller/UsersController.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/vpclub/consumer/entity/Roles.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/vpclub/consumer/entity/Users.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/vpclub/consumer/model/request/RolesPageParam.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/vpclub/consumer/model/request/UsersPageParam.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/vpclub/consumer/rpc/RolesRpcService.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/vpclub/consumer/rpc/UsersRpcService.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/vpclub/consumer/service/IRolesService.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/vpclub/consumer/service/IUsersService.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/vpclub/consumer/service/impl/RolesServiceImpl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/vpclub/consumer/service/impl/UsersServiceImpl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/vpclub/provider/entity/Roles.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/vpclub/provider/entity/Users.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/vpclub/provider/mapper/RolesMapper.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/vpclub/provider/mapper/UsersMapper.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/vpclub/provider/mapper/xml/RolesMapper.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/vpclub/provider/mapper/xml/UsersMapper.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/vpclub/provider/model/request/RolesPageParam.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/vpclub/provider/model/request/UsersPageParam.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/vpclub/provider/rpc/RolesRpc.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/vpclub/provider/rpc/UsersRpc.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/vpclub/provider/rpc/api/RolesProto$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/vpclub/provider/rpc/api/RolesProto$RolesDTO$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/vpclub/provider/rpc/api/RolesProto$RolesDTO$Builder.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/vpclub/provider/rpc/api/RolesProto$RolesDTO.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/vpclub/provider/rpc/api/RolesProto$RolesDTOOrBuilder.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/vpclub/provider/rpc/api/RolesProto$RolesPageResponse$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/vpclub/provider/rpc/api/RolesProto$RolesPageResponse$Builder.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/vpclub/provider/rpc/api/RolesProto$RolesPageResponse.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/vpclub/provider/rpc/api/RolesProto$RolesPageResponseOrBuilder.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/vpclub/provider/rpc/api/RolesProto$RolesRequest$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/vpclub/provider/rpc/api/RolesProto$RolesRequest$Builder.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/vpclub/provider/rpc/api/RolesProto$RolesRequest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/vpclub/provider/rpc/api/RolesProto$RolesRequestOrBuilder.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/vpclub/provider/rpc/api/RolesProto$RolesResponse$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/vpclub/provider/rpc/api/RolesProto$RolesResponse$Builder.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/vpclub/provider/rpc/api/RolesProto$RolesResponse.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/vpclub/provider/rpc/api/RolesProto$RolesResponseOrBuilder.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/vpclub/provider/rpc/api/RolesProto.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/vpclub/provider/rpc/api/RolesServiceGrpc$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/vpclub/provider/rpc/api/RolesServiceGrpc$MethodHandlers.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/vpclub/provider/rpc/api/RolesServiceGrpc$RolesServiceBlockingStub.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/vpclub/provider/rpc/api/RolesServiceGrpc$RolesServiceFutureStub.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/vpclub/provider/rpc/api/RolesServiceGrpc$RolesServiceImplBase.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/vpclub/provider/rpc/api/RolesServiceGrpc$RolesServiceStub.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/vpclub/provider/rpc/api/RolesServiceGrpc.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/vpclub/provider/rpc/api/UsersProto$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/vpclub/provider/rpc/api/UsersProto$UsersDTO$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/vpclub/provider/rpc/api/UsersProto$UsersDTO$Builder.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/vpclub/provider/rpc/api/UsersProto$UsersDTO.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/vpclub/provider/rpc/api/UsersProto$UsersDTOOrBuilder.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/vpclub/provider/rpc/api/UsersProto$UsersPageResponse$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/vpclub/provider/rpc/api/UsersProto$UsersPageResponse$Builder.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/vpclub/provider/rpc/api/UsersProto$UsersPageResponse.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/vpclub/provider/rpc/api/UsersProto$UsersPageResponseOrBuilder.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/vpclub/provider/rpc/api/UsersProto$UsersRequest$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/vpclub/provider/rpc/api/UsersProto$UsersRequest$Builder.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/vpclub/provider/rpc/api/UsersProto$UsersRequest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/vpclub/provider/rpc/api/UsersProto$UsersRequestOrBuilder.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/vpclub/provider/rpc/api/UsersProto$UsersResponse$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/vpclub/provider/rpc/api/UsersProto$UsersResponse$Builder.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/vpclub/provider/rpc/api/UsersProto$UsersResponse.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/vpclub/provider/rpc/api/UsersProto$UsersResponseOrBuilder.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/vpclub/provider/rpc/api/UsersProto.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/vpclub/provider/rpc/api/UsersServiceGrpc$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/vpclub/provider/rpc/api/UsersServiceGrpc$MethodHandlers.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/vpclub/provider/rpc/api/UsersServiceGrpc$UsersServiceBlockingStub.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/vpclub/provider/rpc/api/UsersServiceGrpc$UsersServiceFutureStub.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/vpclub/provider/rpc/api/UsersServiceGrpc$UsersServiceImplBase.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/vpclub/provider/rpc/api/UsersServiceGrpc$UsersServiceStub.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/vpclub/provider/rpc/api/UsersServiceGrpc.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/vpclub/provider/service/IRolesService.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/vpclub/provider/service/IUsersService.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/vpclub/provider/service/impl/RolesServiceImpl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/vpclub/provider/service/impl/UsersServiceImpl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/templates/consumer/controller.java.vm" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/templates/consumer/entity_consumer.java.vm" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/templates/consumer/param.java.vm" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/templates/consumer/rpc_config.java.vm" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/templates/consumer/rpc_consumer.java.vm" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/templates/consumer/service.java.vm" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/templates/consumer/serviceImpl.java.vm" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/templates/entity.java.vm" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/templates/param.java.vm" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/templates/rpc.java.vm" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/templates/rpc_proto.proto.vm" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/templates/service.java.vm" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/templates/serviceImpl.java.vm" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/failsafe-reports/failsafe-summary.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/generated-sources/protobuf/grpc-java/com/vpclub/provider/rpc/api/RolesServiceGrpc.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/generated-sources/protobuf/grpc-java/com/vpclub/provider/rpc/api/UsersServiceGrpc.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/generated-sources/protobuf/java/com/vpclub/provider/rpc/api/RolesProto.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/generated-sources/protobuf/java/com/vpclub/provider/rpc/api/UsersProto.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/protoc-dependencies/4c279c9d246f802a86967c6abe4b8981/google/protobuf/any.proto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/protoc-dependencies/4c279c9d246f802a86967c6abe4b8981/google/protobuf/api.proto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/protoc-dependencies/4c279c9d246f802a86967c6abe4b8981/google/protobuf/compiler/plugin.proto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/protoc-dependencies/4c279c9d246f802a86967c6abe4b8981/google/protobuf/descriptor.proto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/protoc-dependencies/4c279c9d246f802a86967c6abe4b8981/google/protobuf/duration.proto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/protoc-dependencies/4c279c9d246f802a86967c6abe4b8981/google/protobuf/empty.proto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/protoc-dependencies/4c279c9d246f802a86967c6abe4b8981/google/protobuf/field_mask.proto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/protoc-dependencies/4c279c9d246f802a86967c6abe4b8981/google/protobuf/source_context.proto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/protoc-dependencies/4c279c9d246f802a86967c6abe4b8981/google/protobuf/struct.proto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/protoc-dependencies/4c279c9d246f802a86967c6abe4b8981/google/protobuf/timestamp.proto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/protoc-dependencies/4c279c9d246f802a86967c6abe4b8981/google/protobuf/type.proto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/protoc-dependencies/4c279c9d246f802a86967c6abe4b8981/google/protobuf/wrappers.proto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/protoc-dependencies/9d7b2f4de5a7601cdd2569c88ff663a0/greeter.proto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/protoc-dependencies/9d7b2f4de5a7601cdd2569c88ff663a0/type.proto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/protoc-plugins/protoc-3.1.0-build2-windows-x86_64.exe" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/protoc-plugins/protoc-gen-grpc-java-1.0.0-windows-x86_64.exe" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/vp-1.0-SNAPSHOT-sources.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/vp-1.0-SNAPSHOT.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/vp-1.0-SNAPSHOT.jar.original" afterPath="" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -283,21 +402,6 @@
               <item name="tp" type="462c0819:PsiDirectoryNode" />
               <item name="generator" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="vp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="vmcode-autocreated" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="vp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="vmcode-autocreated" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -498,12 +602,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1510131440210</updated>
-      <workItem from="1510131445394" duration="11322000" />
+      <workItem from="1510131445394" duration="11396000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11322000" />
+    <option name="totallyTimeSpent" value="11396000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
