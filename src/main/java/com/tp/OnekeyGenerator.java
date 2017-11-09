@@ -1,12 +1,15 @@
 package com.tp;
 
+import com.tp.generator.MysqlConsumerGenerator;
+import com.tp.generator.MysqlProviderGenerator;
+
 /**
- * 数据库配置
+ * 数据库配置 - 一件生成源码
  *
  * @author tanping
  * @create 2017-11-09 9:50
  **/
-public class DBConfig {
+public class OnekeyGenerator {
     public static String DB_HOST = "127.0.0.1:3306";
     public static String DB_NAME = "spring_boot";
     public static String DB_USERNAME = "root";

@@ -13,23 +13,29 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
-package com.tp;
+package com.tp.generator;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import com.baomidou.mybatisplus.enums.FieldFill;
 import com.baomidou.mybatisplus.generator.AutoGenerator;
 import com.baomidou.mybatisplus.generator.InjectionConfig;
-import com.baomidou.mybatisplus.generator.config.*;
+import com.baomidou.mybatisplus.generator.config.DataSourceConfig;
+import com.baomidou.mybatisplus.generator.config.FileOutConfig;
+import com.baomidou.mybatisplus.generator.config.GlobalConfig;
+import com.baomidou.mybatisplus.generator.config.PackageConfig;
+import com.baomidou.mybatisplus.generator.config.StrategyConfig;
+import com.baomidou.mybatisplus.generator.config.TemplateConfig;
 import com.baomidou.mybatisplus.generator.config.converts.MySqlTypeConvert;
 import com.baomidou.mybatisplus.generator.config.po.TableFill;
 import com.baomidou.mybatisplus.generator.config.po.TableInfo;
 import com.baomidou.mybatisplus.generator.config.rules.DbColumnType;
 import com.baomidou.mybatisplus.generator.config.rules.DbType;
 import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import com.tp.OnekeyGenerator;
 
 /**
  * <p>
@@ -39,27 +45,27 @@ import java.util.Map;
  * @author hubin
  * @date 2016-12-01
  */
-public class MysqlConsumerGenerator {
+public class MysqlProviderGenerator {
 
     /**
      * <p>
      * MySQL 生成演示
      * </p>
      */
-
     public static void main(String[] args) {
         run();
     }
 
-    public static void run() {
-        String projectRoot  = DBConfig.PROJECT_ROOT_PATH;
+        public static void run() {
+        //===== modify base data
+        String projectRoot  = OnekeyGenerator.PROJECT_ROOT_PATH;
+        String rootJavaPackage = OnekeyGenerator.PROJECT_PROVIDER_PACKAGE;
+        //====end
+
         String rootPath =  projectRoot +"/java";
         String protoPath = projectRoot +"/proto";
-
-        String rootJavaPackage = DBConfig.PROJECT_CONSUMER_PACKAGE;
         String rootPackage = rootJavaPackage.replace(".","/");
-        String providerProtoPackage = DBConfig.providerProtoPackage; //提供者 proto java package
-        String providerConfig = DBConfig.providerConfig; //提供者 配置
+
         // 自定义需要填充的字段
         List<TableFill> tableFillList = new ArrayList<>();
         tableFillList.add(new TableFill("ASDD_SS", FieldFill.INSERT_UPDATE));
@@ -99,9 +105,9 @@ public class MysqlConsumerGenerator {
                             }
                         })
                         .setDriverName("com.mysql.jdbc.Driver")
-                        .setUsername(DBConfig.DB_USERNAME)
-                        .setPassword(DBConfig.DB_PASSWORD)
-                        .setUrl("jdbc:mysql://"+DBConfig.DB_HOST+"/"+DBConfig.DB_NAME+"?characterEncoding=utf8")
+                        .setUsername(OnekeyGenerator.DB_USERNAME)
+                        .setPassword(OnekeyGenerator.DB_PASSWORD)
+                        .setUrl("jdbc:mysql://"+ OnekeyGenerator.DB_HOST+"/"+ OnekeyGenerator.DB_NAME+"?characterEncoding=utf8")
         ).setStrategy(
                 // 策略配置
                 new StrategyConfig()
@@ -116,7 +122,7 @@ public class MysqlConsumerGenerator {
                         // 自定义实体，公共字段
                         .setSuperEntityColumns(new String[]{"test_id"})
                         .setTableFillList(tableFillList)
-                        .setLogicDeleteFieldName("deleted")
+//                        .setLogicDeleteFieldName("deleted")
                 // 自定义 mapper 父类
                 // .setSuperMapperClass("com.baomidou.demo.TestMapper")
                 // 自定义 service 父类
@@ -140,7 +146,8 @@ public class MysqlConsumerGenerator {
         ).setPackageInfo(
                 // 包配置
                 new PackageConfig()
-                         .setParent(rootJavaPackage)// 自定义包路径
+//                        .setModuleName("provider")
+                        .setParent(rootJavaPackage)// 自定义包路径
                         .setController("controller")// 这里是控制器包名，默认 web
 
         ).setCfg(
@@ -154,8 +161,8 @@ public class MysqlConsumerGenerator {
                         map.put("rpc","rpcdemo");
                         map.put("root_package",rootJavaPackage);
                         map.put("rpc_package",rootJavaPackage+".rpc");
-                        map.put("rpc_proto_package",providerProtoPackage);
-                        map.put("rpc_provider_config",providerConfig);
+                        map.put("rpc_proto_package",rootJavaPackage+".rpc.api");
+
                         this.setMap(map);
                     }
                 }.setFileOutConfigList(temple)
@@ -171,7 +178,7 @@ public class MysqlConsumerGenerator {
 //                }))
         ).setTemplate(
                 // 关闭默认 xml 生成，调整生成 至 根目录
-                new TemplateConfig().setXml(null).setMapper(null)
+                new TemplateConfig().setController(null)
                 // 自定义模板配置，模板可以参考源码 /mybatis-plus/src/main/resources/template 使用 copy
                 // 至您项目 src/main/resources/template 目录下，模板名称也可自定义如下配置：
                 // .setController("...");
@@ -183,61 +190,23 @@ public class MysqlConsumerGenerator {
         );
 
         //rpc
-        temple.add(new FileOutConfig("/templates/consumer/rpc_consumer.java.vm") {
+        temple.add(new FileOutConfig("/templates/rpc.java.vm") {
             @Override
             public String outputFile(TableInfo tableInfo) {
-                return rootPath +"/" +rootPackage+"/rpc/" + tableInfo.getEntityName() + "RpcService.java";
-            }
-        });
-        temple.add(new FileOutConfig("/templates/consumer/entity_consumer.java.vm") {
-            @Override
-            public String outputFile(TableInfo tableInfo) {
-                return rootPath +"/" +rootPackage+"/entity/" + tableInfo.getEntityName() + ".java";
+                return rootPath +"/" +rootPackage+"/rpc/" + tableInfo.getEntityName() + "Rpc.java";
             }
         });
 
-        temple.add(new FileOutConfig("/templates/consumer/param.java.vm") {
-            @Override
-            public String outputFile(TableInfo tableInfo) {
-                return rootPath +"/" +rootPackage+"/model/request/" + tableInfo.getEntityName() + "PageParam.java";
-            }
-        });
-
-/*        temple.add(new FileOutConfig("/templates/rpc_proto.proto.vm") {
+        temple.add(new FileOutConfig("/templates/rpc_proto.proto.vm") {
             @Override
             public String outputFile(TableInfo tableInfo) {
                 return protoPath +"/" + tableInfo.getEntityName() + ".proto";
             }
-        });*/
-
-        //服务层
-        temple.add(new FileOutConfig("/templates/consumer/service.java.vm") {
-            @Override
-            public String outputFile(TableInfo tableInfo) {
-                return rootPath +"/" +rootPackage+"/service/I" + tableInfo.getEntityName() + "Service.java";
-            }
         });
-        //服务层实现
-        temple.add(new FileOutConfig("/templates/consumer/serviceImpl.java.vm") {
+        temple.add(new FileOutConfig("/templates/param.java.vm") {
             @Override
             public String outputFile(TableInfo tableInfo) {
-                return rootPath +"/" +rootPackage+"/service/impl/" + tableInfo.getEntityName() + "ServiceImpl.java";
-            }
-        });
-
-        //web 层
-        temple.add(new FileOutConfig("/templates/consumer/controller.java.vm") {
-            @Override
-            public String outputFile(TableInfo tableInfo) {
-                return rootPath +"/" +rootPackage+"/controller/" + tableInfo.getEntityName() + "Controller.java";
-            }
-        });
-
-        //config 层
-        temple.add(new FileOutConfig("/templates/consumer/rpc_config.java.vm") {
-            @Override
-            public String outputFile(TableInfo tableInfo) {
-                return rootPath +"/" +rootPackage+"/config/" + tableInfo.getEntityName() + "GrpcConfiguration.java";
+                return rootPath +"/" +rootPackage+"/model/request/" + tableInfo.getEntityName() + "PageParam.java";
             }
         });
 
