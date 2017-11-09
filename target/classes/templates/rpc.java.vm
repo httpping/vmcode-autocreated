@@ -21,10 +21,9 @@ import ${package.Entity}.${entity};
 import ${cfg.root_package}.model.request.${entity}PageParam;
 import ${package.Service}.I${entity}Service;
 
-import ${cfg.rpc_package}.${entity}Proto;
-import ${cfg.rpc_package}.${entity}Proto.*;
-
-import ${cfg.rpc_package}.${entity}ServiceGrpc;
+import ${cfg.rpc_proto_package}.${entity}Proto;
+import ${cfg.rpc_proto_package}.${entity}Proto.*;
+import ${cfg.rpc_proto_package}.${entity}ServiceGrpc;
 
 
 import io.grpc.stub.StreamObserver;

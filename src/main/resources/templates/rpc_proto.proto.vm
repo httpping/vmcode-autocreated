@@ -1,7 +1,7 @@
 syntax = "proto3";
 import "type.proto";
 
-option java_package = "${cfg.rpc_package}";
+option java_package = "${cfg.rpc_proto_package}";
 option java_outer_classname = "${entity}Proto";
 
 

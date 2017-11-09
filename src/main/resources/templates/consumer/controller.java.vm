@@ -1,12 +1,21 @@
 package ${package.Controller};
 
 
+#set($serviceClass = "I"+ ${entity} + "Service")
+
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import cn.vpclub.moses.core.model.response.BaseResponse;
+import cn.vpclub.moses.core.model.response.PageResponse;
+import cn.vpclub.moses.web.controller.AbstractController;
+import io.swagger.annotations.ApiOperation;
+import org.springframework.web.bind.annotation.*;
 
+import ${cfg.root_package}.model.request.UsersPageParam;
 import ${package.Entity}.${entity};
-import ${package.Service}.I${entity}Service;
+import ${package.Service}.${serviceClass};
+
 
 #set($service = "m"+${entity}+"Service" )
 
@@ -34,18 +43,46 @@ import ${superControllerClassPackage};
 #end
 @AllArgsConstructor
 @RequestMapping("#if(${package.ModuleName})/${package.ModuleName}#end/#if(${controllerMappingHyphenStyle})${controllerMappingHyphen}#else${table.entityPath}#end")
-#if(${superControllerClass})
-public class ${table.controllerName} extends ${superControllerClass} {
-#else
-public class ${table.controllerName} {
-#end
+
+public class ${table.controllerName} extends AbstractController{
 
 ##    ${cfg.rpc}
     I${entity}Service $service;
 
-    @RequestMapping("/query")
-    public ${entity} query(@RequestBody ${entity} param){
-        return null;
-##        return ${service}.query(param);
+    @RequestMapping(value = "/add", method = RequestMethod.POST)
+    @ResponseBody
+    @ApiOperation("${table.comment}添加方法-add method")
+    public BaseResponse add(@RequestBody ${entity} vo) {
+        return ${service}.add(vo);
     }
+
+    @RequestMapping(value = "/update", method = RequestMethod.POST)
+    @ResponseBody
+    @ApiOperation("${table.comment}修改方法-update method")
+    public BaseResponse update(@RequestBody ${entity} vo) {
+        return ${service}.update(vo);
+    }
+
+    @RequestMapping(value = "/query", method = RequestMethod.POST)
+    @ResponseBody
+    @ApiOperation("${table.comment}查询方法-query method")
+    public BaseResponse query(@RequestBody ${entity} vo) {
+        return ${service}.query(vo);
+    }
+
+    @RequestMapping(value = "/delete", method = RequestMethod.POST)
+    @ResponseBody
+    @ApiOperation("${table.comment}删除方法-delete method")
+    public BaseResponse delete(@RequestBody ${entity} vo) {
+        return ${service}.delete(vo);
+    }
+
+    @RequestMapping(value = "/page", method = RequestMethod.POST)
+    @ResponseBody
+    @ApiOperation("${table.comment}条件查询-page method")
+    public PageResponse page(@RequestBody ${entity}PageParam vo) {
+        return ${service}.page(vo);
+    }
+
+
 }

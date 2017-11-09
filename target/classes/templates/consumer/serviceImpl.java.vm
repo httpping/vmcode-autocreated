@@ -1,9 +1,8 @@
 package ${package.ServiceImpl};
 
 import ${package.Entity}.${entity};
-import ${package.Mapper}.${table.mapperName};
 import ${package.Service}.${table.serviceName};
-import ${superServiceImplClassPackage};
+##import ${superServiceImplClassPackage};
 import cn.vpclub.moses.utils.constant.ValidatorConditionType;
 import cn.vpclub.moses.utils.validator.AttributeValidatorException;
 
@@ -17,8 +16,6 @@ import cn.vpclub.moses.core.enums.ReturnCodeEnum;
 import cn.vpclub.moses.core.model.response.BackResponseUtil;
 import cn.vpclub.moses.core.model.response.BaseResponse;
 import cn.vpclub.moses.core.model.response.ResponseConvert;
-import com.baomidou.mybatisplus.mapper.EntityWrapper;
-import com.baomidou.mybatisplus.plugins.Page;
 import ${cfg.rpc_package}.${entity}RpcService;
 ##import ${cfg.root_package}.mapper.${entity}Mapper;
 import ${cfg.root_package}.model.request.${entity}PageParam;
@@ -52,12 +49,12 @@ private ${entity}RpcService ${serverName};
         //业务操作
         log.info("add ${entity}: {}", request);
         try {
-        request.validate(ValidatorConditionType.CREATE);
-        response = ${serverName}.add(request);
+            request.validate(ValidatorConditionType.CREATE);
+            response = ${serverName}.add(request);
         } catch (AttributeValidatorException e) {
-        log.error("error: {}", e);
-        response = BackResponseUtil.getBaseResponse(ReturnCodeEnum.CODE_1006.getCode());
-        response.setMessage(e.getMessage());
+            log.error("error: {}", e);
+            response = BackResponseUtil.getBaseResponse(ReturnCodeEnum.CODE_1006.getCode());
+            response.setMessage(e.getMessage());
         }
         return response;
     }

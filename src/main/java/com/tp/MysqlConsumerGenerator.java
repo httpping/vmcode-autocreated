@@ -50,8 +50,10 @@ public class MysqlConsumerGenerator {
         String projectRoot  = "D:\\java-work\\demo\\vmcode-autocreated\\src\\main";
         String rootPath =  projectRoot +"/java";
         String protoPath = projectRoot +"/proto";
-        String rootPackage = "com/vpclub/consumer";
+
         String rootJavaPackage = "com.vpclub.consumer";
+        String rootPackage = rootJavaPackage.replace(".","/");
+        String providerProtoPackage = "com.vpclub.provider.rpc.api"; //提供者 proto java package
 
         // 自定义需要填充的字段
         List<TableFill> tableFillList = new ArrayList<>();
@@ -133,8 +135,7 @@ public class MysqlConsumerGenerator {
         ).setPackageInfo(
                 // 包配置
                 new PackageConfig()
-                        .setModuleName("consumer")
-                        .setParent("com.vpclub")// 自定义包路径
+                         .setParent(rootJavaPackage)// 自定义包路径
                         .setController("controller")// 这里是控制器包名，默认 web
 
         ).setCfg(
@@ -148,6 +149,7 @@ public class MysqlConsumerGenerator {
                         map.put("rpc","rpcdemo");
                         map.put("root_package",rootJavaPackage);
                         map.put("rpc_package",rootJavaPackage+".rpc");
+                        map.put("rpc_proto_package",providerProtoPackage);
                         this.setMap(map);
                     }
                 }.setFileOutConfigList(temple)
@@ -163,7 +165,7 @@ public class MysqlConsumerGenerator {
 //                }))
         ).setTemplate(
                 // 关闭默认 xml 生成，调整生成 至 根目录
-                new TemplateConfig().setXml(null)
+                new TemplateConfig().setXml(null).setMapper(null)
                 // 自定义模板配置，模板可以参考源码 /mybatis-plus/src/main/resources/template 使用 copy
                 // 至您项目 src/main/resources/template 目录下，模板名称也可自定义如下配置：
                 // .setController("...");
@@ -194,12 +196,13 @@ public class MysqlConsumerGenerator {
                 return rootPath +"/" +rootPackage+"/model/request/" + tableInfo.getEntityName() + "PageParam.java";
             }
         });
-        temple.add(new FileOutConfig("/templates/rpc_proto.proto.vm") {
+
+/*        temple.add(new FileOutConfig("/templates/rpc_proto.proto.vm") {
             @Override
             public String outputFile(TableInfo tableInfo) {
                 return protoPath +"/" + tableInfo.getEntityName() + ".proto";
             }
-        });
+        });*/
 
         //服务层
         temple.add(new FileOutConfig("/templates/consumer/service.java.vm") {
@@ -213,6 +216,14 @@ public class MysqlConsumerGenerator {
             @Override
             public String outputFile(TableInfo tableInfo) {
                 return rootPath +"/" +rootPackage+"/service/impl/" + tableInfo.getEntityName() + "ServiceImpl.java";
+            }
+        });
+
+        //web 层
+        temple.add(new FileOutConfig("/templates/consumer/controller.java.vm") {
+            @Override
+            public String outputFile(TableInfo tableInfo) {
+                return rootPath +"/" +rootPackage+"/controller/" + tableInfo.getEntityName() + "Controller.java";
             }
         });
 

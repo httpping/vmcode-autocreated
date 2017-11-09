@@ -53,11 +53,14 @@ public class MysqlProviderGenerator {
      * </p>
      */
     public static void main(String[] args) {
+        //===== modify base data
         String projectRoot  = "D:\\java-work\\demo\\vmcode-autocreated\\src\\main";
+        String rootJavaPackage = "com.vpclub.provider";
+        //====end
+
         String rootPath =  projectRoot +"/java";
         String protoPath = projectRoot +"/proto";
-        String rootPackage = "com/vpclub/provider";
-        String rootJavaPackage = "com.vpclub.provider";
+        String rootPackage = rootJavaPackage.replace(".","/");
 
         // 自定义需要填充的字段
         List<TableFill> tableFillList = new ArrayList<>();
@@ -139,8 +142,8 @@ public class MysqlProviderGenerator {
         ).setPackageInfo(
                 // 包配置
                 new PackageConfig()
-                        .setModuleName("provider")
-                        .setParent("com.vpclub")// 自定义包路径
+//                        .setModuleName("provider")
+                        .setParent(rootJavaPackage)// 自定义包路径
                         .setController("controller")// 这里是控制器包名，默认 web
 
         ).setCfg(
@@ -154,6 +157,8 @@ public class MysqlProviderGenerator {
                         map.put("rpc","rpcdemo");
                         map.put("root_package",rootJavaPackage);
                         map.put("rpc_package",rootJavaPackage+".rpc");
+                        map.put("rpc_proto_package",rootJavaPackage+".rpc.api");
+
                         this.setMap(map);
                     }
                 }.setFileOutConfigList(temple)
@@ -169,7 +174,7 @@ public class MysqlProviderGenerator {
 //                }))
         ).setTemplate(
                 // 关闭默认 xml 生成，调整生成 至 根目录
-                new TemplateConfig()
+                new TemplateConfig().setController(null)
                 // 自定义模板配置，模板可以参考源码 /mybatis-plus/src/main/resources/template 使用 copy
                 // 至您项目 src/main/resources/template 目录下，模板名称也可自定义如下配置：
                 // .setController("...");
